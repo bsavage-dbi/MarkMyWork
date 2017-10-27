@@ -1,0 +1,27 @@
+{
+  "background": {
+    "page": "popup.html"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "description": "Log your daily time in seconds!",
+  "icons": {
+    "128": "icon128.png",
+    "16": "icon16.png",
+    "48": "icon48.png"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "manifest_version": 2,
+  "name": "Mark My Work - Jira time recording made easy",
+  "permissions": [
+    "storage",
+    "\u003Call_urls>"
+  ],
+  "short_name": "Mark My Work",
+  "version": "0.0.1"
+}

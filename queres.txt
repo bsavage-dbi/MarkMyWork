@@ -1,0 +1,5 @@
+/search?jql=worklogAuthor = currentUser() AND worklogDate >= '2017-10-01' AND worklogDate <= '2017-11-05'&fields=id,key
+
+https://codegen.atlassian.net/rest/api/2/search?jql=worklogAuthor = currentUser() AND worklogDate >= '2017-10-01' AND worklogDate <= '2017-11-05'
+https://codegen.atlassian.net/rest/api/2/search?jql=worklogAuthor = currentUser() AND worklogDate >= '2017-10-01' AND worklogDate <= '2017-11-05'&fields=worklog
+https://codegen.atlassian.net/rest/api/2/search?jql=worklogAuthor=currentUser() AND worklogDate >= '2017-10-01' AND worklogDate <= '2017-11-05'&fields=worklog

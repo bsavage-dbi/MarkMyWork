@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<title>Gentelella Alela! | </title>-->
+    <title>Mark My Work! | </title>
+
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!--jquery-ui-->
+    <link href="vendors/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href="vendors/fullcalendar/dist/fullcalendar.css" rel="stylesheet">
+    <link href="vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+
+    <!--selectize-->
+    <link href="vendors/selectize/dist/css/selectize.css" rel="stylesheet">
+    <link href="vendors/selectize/dist/css/selectize.bootstrap3.css" rel="stylesheet">
+
+
+    <!--bootstrap-tokenfield-->
+    <link href="vendors/sliptree-bootstrap-tokenfield/dist/css/bootstrap-tokenfield.min.css" rel="stylesheet">
+
+    <!--<link href="css/bootstrap-tagsinput.css" rel="stylesheet">-->
+    <!-- Custom styling plus plugins -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md" style="width:800px;height: 600px">
+<div class="container body">
+    <div class="main_container">
+
+        <!-- page content -->
+        <div class="" role="main">
+            <div class="">
+                <!--<div class="row main main-login">-->
+                    <!--<div class="main-login-inner">-->
+
+                        <!--<div class="panel-heading">-->
+                            <!--<div class="panel-title text-center">-->
+                                <!--<h1 class="login-title">Mark My Work!!!</h1>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="main-center">-->
+                            <!--<form class="form-horizontal" method="post" action="#">-->
+
+                                <!--<div class="form-group">-->
+                                    <!--<label for="name" class="cols-sm-2 control-label">Jira Cloud URL</label>-->
+                                    <!--<div class="cols-sm-10">-->
+                                        <!--<div class="input-group">-->
+                                            <!--<span class="input-group-addon"><i class="fa fa-link fa" aria-hidden="true"></i></span>-->
+                                            <!--<input type="text" class="form-control" name="name" id="name" placeholder="https://yourcompany.atlassian.net/"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group">-->
+                                    <!--<label for="email" class="cols-sm-2 control-label">Username</label>-->
+                                    <!--<div class="cols-sm-10">-->
+                                        <!--<div class="input-group">-->
+                                            <!--<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>-->
+                                            <!--<input type="text" class="form-control" name="email" id="email" placeholder="name@yourcompany.com"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group">-->
+                                    <!--<label for="username" class="cols-sm-2 control-label">Password</label>-->
+                                    <!--<div class="cols-sm-10">-->
+                                        <!--<div class="input-group">-->
+                                            <!--<span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>-->
+                                            <!--<input type="text" class="form-control" name="username" id="username" placeholder="********"/>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--<div class="form-group ">-->
+                                    <!--<button type="button" class="btn btn-primary btn-lg btn-block login-button">Login</button>-->
+                                <!--</div>-->
+                            <!--</form>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                    </div>
+                    <div class="col-md-12">
+
+                        <div class="x_panel">
+                            <!-- <div class="x_title">
+                              <h2>Mark My Work!!</h2>
+                              <div class="clearfix"></div>
+                            </div> -->
+                            <div class="x_content">
+                                <div id='calendar'></div>
+                                <div id="calender-loading"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="loadSettingsModel" class="modal fade" tabindex="-1" data-backdrop="static"
+     data-keyboard="false" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+
+            <div class="modal-body">
+
+                <div class="main-login-inner">
+
+                    <div class="panel-heading">
+                        <div class="panel-title text-center">
+                            <h1 class="login-title">Mark My Work!!!</h1>
+                        </div>
+                    </div>
+                    <div class="main-center">
+                        <form class="form-horizontal" method="post" action="#">
+
+                            <div class="form-group">
+                                <label for="name" class="cols-sm-2 control-label">Jira Cloud URL</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-link fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="base url" id="inp-base-url" placeholder="https://yourcompany.atlassian.net/" value="https://codegen.atlassian.net"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="cols-sm-2 control-label">Username</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="username" id="inp-username" placeholder="name@yourcompany.com"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="username" class="cols-sm-2 control-label">Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="inp-password" placeholder="********"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <button type="button" id="login-button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">Worklog </h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="testmodal2" style="padding: 5px 20px;">
+                    <form id="editWorkLog" class="form-horizontal calender" role="form">
+                        <input type="hidden" id="hidEditModelIssueId">
+                        <input type="hidden" id="hidEditModelWorkLogId">
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="ticketInfo">Ticket</label>
+                            <div class="col-sm-9">
+                                <input type="text" readonly id="ticketInfo" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="txtAffectingDate">Affecting Dates</label>
+                            <div class="col-sm-9">
+                                <input type="text" readonly class="form-control token-input" id="txtAffectingDate" name="Date">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="txtStartAt">Time Started</label>
+                            <div class="col-sm-3">
+                                <input type="text" readonly id="txtStartAt" class="form-control" title="Start at">
+                            </div>
+                            <!--</div>-->
+                            <!--<div class="form-group ">-->
+                            <label class="col-sm-3 control-label" for="txtShowDuration">Time Spent</label>
+                            <div class="col-sm-3">
+                                <input type="text" readonly class="form-control" id="txtShowDuration" name="Time Spent">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="txtShowComment">Comment</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" readonly style="height:55px;" id="txtShowComment" name="Comment"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+                <button type="button" id="deleteEvent" class="btn btn-danger antosubmit2">Delete Worklog</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- calendar modal -->
+<div id="fc_create" data-toggle="modal" data-target="#NewWorklogModel"></div>
+
+<!--<div id="NewWorklogModel" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+<div id="NewWorklogModel" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">New Worklog</h4>
+            </div>
+            <div class="modal-body" id="newModelBody">
+                <div id="testmodal" style="padding: 5px 20px;">
+                    <form id="antoform" class="form-horizontal calender" role="form">
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="ticket">Ticket<sup class="mandatory">*</sup></label>
+                            <div class="col-sm-9">
+                                <!--<input type="text" class="form-control" id="ticket" name="title">-->
+                                <!--<select type="text" class="form-control js-example-data-ajax " id="ticket" name="title"></select>-->
+                                <!--<select class="js-example-data-array form-control" id="ticket"></select>-->
+                                <select id="ticket" class="repositories form-control" placeholder="Pick a ticket..."></select>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="dates">Affecting Dates<sup class="mandatory">*</sup></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control token-input" id="dates" name="Date">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="startAt">Time Started<sup class="mandatory">*</sup></label>
+                            <div class="col-sm-3">
+                                <select type="text" class="form-control" id="startAt" name="Starting Time">
+                                    <option value="0">12:00 AM</option>
+                                    <option value="30">12:30 AM</option>
+                                    <option value="100">1:00 AM</option>
+                                    <option value="130">1:30 AM</option>
+                                    <option value="200">2:00 AM</option>
+                                    <option value="230">2:30 AM</option>
+                                    <option value="300">3:00 AM</option>
+                                    <option value="330">3:30 AM</option>
+                                    <option value="400">4:00 AM</option>
+                                    <option value="430">4:30 AM</option>
+                                    <option value="500">5:00 AM</option>
+                                    <option value="530">5:30 AM</option>
+                                    <option value="600">6:00 AM</option>
+                                    <option value="630">6:30 AM</option>
+                                    <option value="700">7:00 AM</option>
+                                    <option value="730">7:30 AM</option>
+                                    <option value="800">8:00 AM</option>
+                                    <option value="830">8:30 AM</option>
+                                    <option value="900">9:00 AM</option>
+                                    <option value="930">9:30 AM</option>
+                                    <option value="1000">10:00 AM</option>
+                                    <option value="1030">10:30 AM</option>
+                                    <option value="1100">11:00 AM</option>
+                                    <option value="1130">11:30 AM</option>
+                                    <option value="1200">12:00 PM</option>
+                                    <option value="1230">12:30 PM</option>
+                                    <option value="1300">1:00 PM</option>
+                                    <option value="1330">1:30 PM</option>
+                                    <option value="1400">2:00 PM</option>
+                                    <option value="1430">2:30 PM</option>
+                                    <option value="1500">3:00 PM</option>
+                                    <option value="1530">3:30 PM</option>
+                                    <option value="1600">4:00 PM</option>
+                                    <option value="1630">4:30 PM</option>
+                                    <option value="1700">5:00 PM</option>
+                                    <option value="1730">5:30 PM</option>
+                                    <option value="1800">6:00 PM</option>
+                                    <option value="1830">6:30 PM</option>
+                                    <option value="1900">7:00 PM</option>
+                                    <option value="1930">7:30 PM</option>
+                                    <option value="2000">8:00 PM</option>
+                                    <option value="2030">8:30 PM</option>
+                                    <option value="2100">9:00 PM</option>
+                                    <option value="2130">9:30 PM</option>
+                                    <option value="2200">10:00 PM</option>
+                                    <option value="2230">10:30 PM</option>
+                                    <option value="2300">11:00 PM</option>
+                                    <option value="2330">11:30 PM</option>
+                                </select>
+                            </div>
+                            <!--</div>-->
+                            <!--<div class="form-group ">-->
+                            <label class="col-sm-3 control-label" for="duration">Time Spent<sup class="mandatory">*</sup></label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="duration" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="col-sm-3 control-label" for="comment">Comment</label>
+                            <div class="col-sm-9">
+                                <textarea class="form-control" style="height:55px;" id="comment" name="descr"></textarea>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="new-worklog-add-button" class="btn btn-default btn-primary antosubmit">Log</button>
+                <button type="button" class="btn  antoclose" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
+<div id="fc_settings" data-toggle="modal" data-target="#loadSettingsModel"></div>
+<!-- /calendar modal -->
+
+<!-- jQuery -->
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<!--jquery-ui-->
+<script src="vendors/jquery-ui/jquery-ui.min.js"></script>
+<!-- Bootstrap -->
+<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- FullCalendar -->
+<script src="vendors/moment/min/moment.min.js"></script>
+<script src="vendors/fullcalendar/dist/fullcalendar.js"></script>
+
+<script src="vendors/Typeahead/typeahead.bundle.js"></script>
+<script src="vendors/handlebars/handlebars-v4.0.11.js"></script>
+
+<script src="vendors/selectize/dist/js/standalone/selectize.js"></script>
+
+<!--bootstrap-tokenfield-->
+<script src="vendors/sliptree-bootstrap-tokenfield/dist/bootstrap-tokenfield.min.js"></script>
+
+<script src="vendors/sweetalert-master/js/sweetalert2.all.min.js"></script>
+
+
+<!-- Custom Theme Scripts -->
+<script src="js/jira-api.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>

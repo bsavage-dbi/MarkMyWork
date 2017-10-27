@@ -1,0 +1,66 @@
+<html>
+<head>
+
+
+	<title>Mark my work...</title>
+	<link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/options.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-login-inner" style="">
+
+	<div class="">
+		<div class="panel-title text-center">
+			<h1 class="login-title">Mark My Work!!!</h1>
+		</div>
+	</div>
+	<div class="main-center" style="">
+		<form class="form-horizontal" method="post" action="#">
+
+			<div class="form-group">
+				<label for="inp-base-url" class="cols-sm-2 control-label">Jira Cloud URL</label>
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-link fa" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" name="base url" id="inp-base-url" placeholder="https://yourcompany.atlassian.net/" value="https://codegen.atlassian.net">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inp-username" class="cols-sm-2 control-label">Username</label>
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+						<input type="text" class="form-control" name="username" id="inp-username" placeholder="name@yourcompany.com">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inp-password" class="cols-sm-2 control-label">Password</label>
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+						<input type="password" class="form-control" name="password" id="inp-password" placeholder="********">
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group ">
+				<button type="button" id="login-button" class="btn btn-primary btn-lg btn-block login-button">Login</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- jQuery -->
+<script src="vendors/jquery/dist/jquery.min.js"></script>
+<script src="vendors/sweetalert-master/js/sweetalert2.all.min.js"></script>
+<script src="js/jira-api.js"></script>
+<script src="js/options.js"></script>
+
+
+</body></html>
