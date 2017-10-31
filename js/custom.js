@@ -109,18 +109,47 @@ function loadWorkLogs(start, end, callback) {
     function handleSuccess(response) {
         var issues = response.issues;
         var events = [];
+        var promises = [];
 
         issues.forEach(function (issue) {
-            if (issue && issue.fields && issue.fields.worklog && issue.fields.worklog.worklogs) {
-                var worklogs = issue.fields.worklog.worklogs;
-                worklogs.forEach(function (worklog) {
-                    if (worklog.author.accountId == context.options.accountId)
-                        events.push(createWorkLogEvent(issue, worklog));
-                });
+                if (issue && issue.fields && issue.fields.worklog && issue.fields.worklog.worklogs) {
+                    var worklogs = issue.fields.worklog.worklogs;
+                    if (worklogs.length < 4) {
+                        // promises.push(Promise.resolve(issue));
+                        worklogs.forEach(function (worklog) {
+                            if (worklog.author.accountId == context.options.accountId)
+                                events.push(createWorkLogEvent(issue, worklog));
+                        });
+                    }
+                    else {
+                        promises.push(context.JIRA.getIssueWorklog(issue.key));
+                    }
+                }
             }
-
+        );
+        Promise.all(promises).then(function (promiseReturns) {
+            console.log(promiseReturns);
+            promiseReturns.forEach(function (workLogInfo) {
+                console.log(workLogInfo);
+                var workLogs = workLogInfo.worklogs;
+                console.log(workLogs);
+                workLogs.forEach(function (worklog) {
+                    if (worklog.author.accountId == context.options.accountId)
+                        events.push(createWorkLogEvent(findIssueById(worklog.issueId), worklog));
+                });
+            });
+            callback(events);
         });
-        callback(events);
+
+        function findIssueById(issueId) {
+            var returnVal = null;
+            issues.forEach(function (issue) {
+                if (issue.id === issueId) {
+                    returnVal = issue;
+                }
+            });
+            return returnVal;
+        }
     }
 
     function createWorkLogEvent(issue, workLog) {
@@ -130,7 +159,7 @@ function loadWorkLogs(start, end, callback) {
         event.className = issue.key;
         event.end = moment(workLog.started).add(workLog.timeSpentSeconds, 'seconds').format();
         event.title = issue.key + ": " + issue.fields.summary;
-        event.timeSpent = (workLog.timeSpentSeconds / 3600) + "h";
+        event.timeSpent = workLog.timeSpent;
 
         event.workLog = workLog;
         event.issue = issue;
@@ -138,15 +167,12 @@ function loadWorkLogs(start, end, callback) {
         var colorId = getColorId(issue.key);
         event.backgroundColor = colorCodes[colorId].backgroundColor;
         event.borderColor = colorCodes[colorId].borderColor;
-        console.log(event);
         return event;
     }
 
     function getColorId(key) {
 
-        console.log(key);
         if (!context.colorIds) {
-            console.log("context.colorIds = {}");
             context.colorIds = {};
         }
         if (!context.colorIds[key]) {
@@ -156,8 +182,6 @@ function loadWorkLogs(start, end, callback) {
 
             context.currentColorId = colorId + 1;
         }
-        console.log("context.colorIds[key]");
-        console.log(context.colorIds[key]);
         return context.colorIds[key];
     }
 
@@ -309,7 +333,6 @@ var calanderRangeSelected = function (start, end, allDay) {
             value: start,
             label: start.format("MMM-D")
         });
-        console.log(start.format());
         diff = end.diff(start, "minutes");
         if (diff < 1440)
             timeSpent = Math.floor(diff / 60) + "h " + ((diff % 60) > 0 ? (diff % 60) + "m" : "");

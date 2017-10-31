@@ -32,6 +32,12 @@
                 .addClass("btn-success")
                 .html("Success");
             $('.form-group').removeClass("has-error");
+            swal({
+                title:'Success',
+                type:'success',
+                showConfirmButton:false,
+                html:'please click on <img src=\"images/icon16.png\"> to open the calender again'
+            })
         });
     }
 
