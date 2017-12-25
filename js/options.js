@@ -109,7 +109,7 @@
         chrome.storage.sync.get({
             username: '',
             password: '',
-            baseUrl: 'https://codegen.atlassian.net/',
+            baseUrl: '',
             apiExtension: '/rest/api/2',
             accountId: ''
         }, function (items) {
