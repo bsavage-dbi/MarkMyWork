@@ -1,10 +1,9 @@
 {
   "background": {
-    "page": "popup.html"
+    "scripts": ["bg.js"]
   },
   "browser_action": {
-    "default_icon": "images/icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "images/38.png"
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "description": "Log your daily time in seconds!",
@@ -21,6 +20,7 @@
   "name": "Mark My Work - Jira time recording made easy",
   "permissions": [
     "storage",
+    "tabs",
     "\u003Call_urls>"
   ],
   "short_name": "Mark My Work",
